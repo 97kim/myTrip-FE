@@ -6,4 +6,8 @@ S3에 올려 Cloudfront와 연결
 
 CORS는 BE에서 flask의 flask_cors 모듈로 처리
 
-https://dk9q1cr2zzfmc.cloudfront.net/templates/index.html
+https://trip.kimkj.shop/templates/index.html
+
+route 53에서 서브 도메인 추가
+www.kimkj.shop -> ec2 인스턴스 (BE)
+trip.kimkj.shop -> Cloudfront 배포 도메인 (FE)
