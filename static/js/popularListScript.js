@@ -45,7 +45,7 @@ function popularList(quantity) {
 
     $.ajax({
             type: "POST",
-            url: "https://www.kimkj.shop/popular/list",
+            url: "https://api.kimkj.shop/popular/list",
             data: {quantity: quantity, cat1: cat1, cat2: cat2, cat3: cat3, content_type_id: content_type_id},
             success: function (response) {
                 $('.before-render').hide();

@@ -5,7 +5,7 @@ function getId() {
 function getItem() {
     $.ajax({
         type: "POST",
-        url: `https://www.kimkj.shop/trips/place/render`,
+        url: `https://api.kimkj.shop/trips/place/render`,
         data: {trip_id_give: getId()},
         success: function (response) {
             $('#profile_img').attr('src', `https://dk9q1cr2zzfmc.cloudfront.net/profile/${response['trip']['profile_img']}`);
@@ -23,7 +23,7 @@ function getItem() {
 function updateTrip(trip_id) {
     $.ajax({
         type: "POST",
-        url: 'https://www.kimkj.shop/trips/session',
+        url: 'https://api.kimkj.shop/trips/session',
         data: {trip_id_give: trip_id},
         success: function (response) {
             sessionStorage.setItem('title', response['title']);
@@ -40,7 +40,7 @@ function updateTrip(trip_id) {
 function delTrip(trip_id) {
     $.ajax({
         type: "DELETE",
-        url: `https://www.kimkj.shop/trips/place/${trip_id}`,
+        url: `https://api.kimkj.shop/trips/place/${trip_id}`,
         data: {},
         success: function (response) {
             alert(response['msg'])
@@ -54,7 +54,7 @@ function delTrip(trip_id) {
 function kakaoShare() {
     $.ajax({
         type: "POST",
-        url: `https://www.kimkj.shop/trips/place/render`,
+        url: `https://api.kimkj.shop/trips/place/render`,
         data: {trip_id_give: getId()},
         success: function (response) {
             let share_title = response['trip']['title'];
@@ -70,8 +70,8 @@ function kakaoShare() {
                     description: share_place,
                     imageUrl: share_img,
                     link: {
-                        mobileWebUrl: 'https://www.kimkj.shop' + location.pathname,
-                        webUrl: 'https://www.kimkj.shop' + location.pathname
+                        mobileWebUrl: 'https://api.kimkj.shop' + location.pathname,
+                        webUrl: 'https://api.kimkj.shop' + location.pathname
                     },
                 },
                 // 나중에 변수 추가할 것임!!
@@ -84,8 +84,8 @@ function kakaoShare() {
                     {
                         title: '구경 가기',
                         link: {
-                            mobileWebUrl: 'https://www.kimkj.shop' + location.pathname,
-                            webUrl: 'https://www.kimkj.shop' + location.pathname
+                            mobileWebUrl: 'https://api.kimkj.shop' + location.pathname,
+                            webUrl: 'https://api.kimkj.shop' + location.pathname
                         }
                     }
                 ],
@@ -106,7 +106,7 @@ function toggle_like(trip_id) {
 
             $.ajax({
                 type: "POST",
-                url: "https://www.kimkj.shop/trips/place/like",
+                url: "https://api.kimkj.shop/trips/place/like",
                 data: {
                     trip_id_give: trip_id,
                     action_give: "uncheck"
@@ -121,7 +121,7 @@ function toggle_like(trip_id) {
         } else {
             $.ajax({
                 type: "POST",
-                url: "https://www.kimkj.shop/trips/place/like",
+                url: "https://api.kimkj.shop/trips/place/like",
                 data: {
                     trip_id_give: trip_id,
                     action_give: "check"
@@ -140,7 +140,7 @@ function toggle_like(trip_id) {
 function get_like() {
     $.ajax({
         type: "GET",
-        url: `https://www.kimkj.shop/trips/place/like/${getId()}`,
+        url: `https://api.kimkj.shop/trips/place/like/${getId()}`,
         data: {},
         success: function (response) {
             if (response['like_status'] == true) {
@@ -162,7 +162,7 @@ function comment() {
         if (comment) {
             $.ajax({
                 type: "POST",
-                url: `https://www.kimkj.shop/trips/place/comment/${getId()}`,
+                url: `https://api.kimkj.shop/trips/place/comment/${getId()}`,
                 data: {comment_give: comment, date_give: date},
                 success: function (response) {
                     if (response['result'] == 'success') {
@@ -181,7 +181,7 @@ function showComments() {
     $('#comment_list').empty();
     $.ajax({
         type: "GET",
-        url: `https://www.kimkj.shop/trips/place/comment/${getId()}`,
+        url: `https://api.kimkj.shop/trips/place/comment/${getId()}`,
         data: {},
         success: function (response) {
             let all_comments = response['all_comments'];
@@ -220,7 +220,7 @@ function showComments() {
 function deleteComment(comment_id) {
     $.ajax({
         type: "DELETE",
-        url: `https://www.kimkj.shop/trips/place/comment/${getId()}`,
+        url: `https://api.kimkj.shop/trips/place/comment/${getId()}`,
         data: {comment_id: comment_id},
         success: function (response) {
             if (response['result'] == 'success') {
@@ -263,7 +263,7 @@ function autoHeight() {
 function ownCheck() {
     $.ajax({
         type: "POST",
-        url: 'https://www.kimkj.shop/own',
+        url: 'https://api.kimkj.shop/own',
         data: {trip_id: getId()},
         success: function (response) {
             if (response['owner']['username'] == response['now_user']) {

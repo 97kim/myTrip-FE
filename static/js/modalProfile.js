@@ -9,7 +9,7 @@ function saveProfile() {
 
     $.ajax({
         type: "POST",
-        url: "https://www.kimkj.shop/profile",
+        url: "https://api.kimkj.shop/profile",
         data: form_data,
         cache: false,
         contentType: false,

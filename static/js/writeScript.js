@@ -14,7 +14,7 @@ function save() {
 
     $.ajax({
         type: "POST",
-        url: "https://www.kimkj.shop/trips/place",
+        url: "https://api.kimkj.shop/trips/place",
         data: form_data,
         cache: false,
         contentType: false,

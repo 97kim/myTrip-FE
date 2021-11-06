@@ -134,7 +134,7 @@ function geoInfo() {
 
         $.ajax({
                 type: "POST",
-                url: "https://www.kimkj.shop/near",
+                url: "https://api.kimkj.shop/near",
                 data: {lat_give: lat, lng_give: lng},
                 success: function (response) {
                     $('#near_card').empty();
@@ -193,7 +193,7 @@ function onGeoError() { //위치 정보 공유 거부 시
 function showTrips() {
     $.ajax({
         type: "GET",
-        url: "https://www.kimkj.shop/trips",
+        url: "https://api.kimkj.shop/trips",
         data: {},
         success: function (response) {
             let trip_list = response['all_trips'];
@@ -245,7 +245,7 @@ function moveTripDetail(trip_id) {
 function showPopularTrips() {
     $.ajax({
         type: 'POST',
-        url: 'https://www.kimkj.shop/popular/trips',
+        url: 'https://api.kimkj.shop/popular/trips',
         data: {},
         success: function (response) {
             $('#popular_card').empty();

@@ -29,7 +29,7 @@ function geoInfoList(quantity) {
 
         $.ajax({
                 type: "POST",
-                url: "https://www.kimkj.shop/near/list",
+                url: "https://api.kimkj.shop/near/list",
                 data: {quantity_give: quantity, lat_give: lat, lng_give: lng, type_give: type},
                 success: function (response) {
                     $('.before-render').hide();

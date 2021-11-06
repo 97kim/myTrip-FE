@@ -5,7 +5,7 @@ function getId_popular() {
 function getDetailIntro() {
     $.ajax({
         type: "POST",
-        url: 'https://www.kimkj.shop/popular/place/intro',
+        url: 'https://api.kimkj.shop/popular/place/intro',
         data: {
             content_id_give: getId_popular(),
         },
@@ -78,7 +78,7 @@ function weather_popular() {
 
     $.ajax({
         type: "POST",
-        url: 'https://www.kimkj.shop/popular/place/weather',
+        url: 'https://api.kimkj.shop/popular/place/weather',
         data: {
             place_lat: place_lat,
             place_lng: place_lng
@@ -116,7 +116,7 @@ function toggle_bookmark_popular(content_id) {
         if ($('#bookmark').hasClass("fas")) {
             $.ajax({
                 type: "POST",
-                url: "https://www.kimkj.shop/popular/place/bookmark",
+                url: "https://api.kimkj.shop/popular/place/bookmark",
                 data: {
                     content_id_give: content_id,
                     action_give: "uncheck",
@@ -132,7 +132,7 @@ function toggle_bookmark_popular(content_id) {
         } else {
             $.ajax({
                 type: "POST",
-                url: "https://www.kimkj.shop/popular/place/bookmark",
+                url: "https://api.kimkj.shop/popular/place/bookmark",
                 data: {
                     content_id_give: content_id,
                     action_give: "check",
@@ -153,7 +153,7 @@ function toggle_bookmark_popular(content_id) {
 function getBookmark_popular() {
     $.ajax({
         type: "GET",
-        url: `https://www.kimkj.shop/popular/place/bookmark/${getId_popular()}`,
+        url: `https://api.kimkj.shop/popular/place/bookmark/${getId_popular()}`,
         data: {},
         success: function (response) {
             if (response['bookmark_status'] == true) {
