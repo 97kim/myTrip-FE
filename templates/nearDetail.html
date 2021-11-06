@@ -51,7 +51,8 @@
     <link rel="stylesheet" href="../static/css/weather.css"/>
     <script type="text/javascript" src="../static/js/nearDetailScript.js"></script>
     <script type="text/javascript" src="../static/js/logout.js"></script>
-    <script type="text/javascript" src="../static/js/modalProfile.js'"></script>
+    <script type="text/javascript" src="../static/js/modalProfile.js"></script>
+    <script type="text/javascript" src="../static/js/nav.js"></script>
     <script type="text/javascript"
             src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=00r1clbpdg"></script>
 
@@ -81,6 +82,7 @@
                     }
                 }
             });
+            navLoginCheck();
             getDetailIntro();
             getMap();
             weather();
@@ -109,8 +111,15 @@
                     <a class="nav-link" href="tripsList.html">Trips</a>
                 </li>
             </ul>
+            <ul class="navbar-nav" id="login-btn" style="display: none;">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">
+                        로그인
+                    </a>
+                </li>
+            </ul>
             <ul class="navbar-nav d-flex">
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" id="profile-btn" style="display: none;">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Profile

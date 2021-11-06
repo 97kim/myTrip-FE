@@ -9,7 +9,7 @@
 
     <!--https 사이트에서 http 사이트 요청 시 발생하는 보안 문제 해결-->
     <!--우리 사이트는 https이고 요청을 보내는 한국관광공사api 사이트는 http라서 발생했던 문제 해결-->
-<!--?    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
+    <!--?    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
 
     <!--메타태그 설정-->
     <meta property="og:title" content="여행어때"/>
@@ -47,6 +47,7 @@
     <script type="text/javascript" src="../static/js/popularListScript.js"></script>
     <script type="text/javascript" src="../static/js/logout.js"></script>
     <script type="text/javascript" src="../static/js/modalProfile.js"></script>
+    <script type="text/javascript" src="../static/js/nav.js"></script>
 
     <script>
         let perPage = "15";
@@ -57,6 +58,24 @@
                 perPage = $(this).val();
                 popularList(perPage)
             })
+            $.ajaxSetup({
+                error: function (jqXHR, exception) {
+                    switch (jqXHR.status) {
+                        case 401:
+                            alert('인증 에러!!');
+                            break;
+                        case 423:
+                            alert('중복된 id!!');
+                            break;
+                    }
+                },
+                beforeSend: function (xhr) {
+                    if (localStorage.getItem('token') != null) {
+                        xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+                    }
+                }
+            });
+            navLoginCheck();
         });
     </script>
 
@@ -84,8 +103,15 @@
                 </li>
             </ul>
 
+            <ul class="navbar-nav" id="login-btn" style="display: none;">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">
+                        로그인
+                    </a>
+                </li>
+            </ul>
             <ul class="navbar-nav d-flex">
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" id="profile-btn" style="display: none;">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Profile

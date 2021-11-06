@@ -44,7 +44,7 @@ function delTrip(trip_id) {
         data: {},
         success: function (response) {
             alert(response['msg'])
-            window.location.href = "../templtes/tripsList.html";
+            window.location.href = "../templates/tripsList.html";
         }
     });
 
@@ -70,8 +70,8 @@ function kakaoShare() {
                     description: share_place,
                     imageUrl: share_img,
                     link: {
-                        mobileWebUrl: 'https://kimkj.shop' + location.pathname,
-                        webUrl: 'https://kimkj.shop' + location.pathname
+                        mobileWebUrl: 'https://www.kimkj.shop' + location.pathname,
+                        webUrl: 'https://www.kimkj.shop' + location.pathname
                     },
                 },
                 // 나중에 변수 추가할 것임!!
@@ -84,8 +84,8 @@ function kakaoShare() {
                     {
                         title: '구경 가기',
                         link: {
-                            mobileWebUrl: 'https://kimkj.shop' + location.pathname,
-                            webUrl: 'https://kimkj.shop' + location.pathname
+                            mobileWebUrl: 'https://www.kimkj.shop' + location.pathname,
+                            webUrl: 'https://www.kimkj.shop' + location.pathname
                         }
                     }
                 ],

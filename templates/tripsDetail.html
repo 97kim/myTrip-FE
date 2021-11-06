@@ -42,6 +42,7 @@
     <script type="text/javascript" src="../static/js/tripsDetailScript.js"></script>
     <script type="text/javascript" src="../static/js/logout.js"></script>
     <script type="text/javascript" src="../static/js/modalProfile.js"></script>
+    <script type="text/javascript" src="../static/js/nav.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>
         Kakao.init('a06f77fa2f554f8e1f314819fccabefd');
@@ -71,6 +72,7 @@
             showComments(); // 댓글 리스트 출력
             autoHeight(); // textarea 자동 높이 조절
             ownCheck();
+            navLoginCheck();
         });
     </script>
 </head>
@@ -95,8 +97,15 @@
                     <a class="nav-link" href="tripsList.html">Trips</a>
                 </li>
             </ul>
+            <ul class="navbar-nav" id="login-btn" style="display: none;">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">
+                        로그인
+                    </a>
+                </li>
+            </ul>
             <ul class="navbar-nav d-flex">
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" id="profile-btn" style="display: none;">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Profile
