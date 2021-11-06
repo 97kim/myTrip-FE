@@ -15,7 +15,7 @@ function update() {
 
     $.ajax({
         type: "PUT",
-        url: `http://3.35.140.97:5000/trips/place/${trip_id}`,
+        url: `https://www.kimkj.shop/trips/place/${trip_id}`,
         data: form_data,
         cache: false,
         contentType: false,

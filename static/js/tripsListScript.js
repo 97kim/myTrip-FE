@@ -2,7 +2,7 @@ function showListSort(type) {
     $('#trip_card').empty();
     $.ajax({
         type: "GET",
-        url: `http://3.35.140.97:5000/trips?sort=${type}`,
+        url: `https://www.kimkj.shop/trips?sort=${type}`,
         data: {},
         success: function (response) {
             let trip_list = response['all_trips'];

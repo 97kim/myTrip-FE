@@ -5,7 +5,7 @@ function getId() {
 function getDetailIntro() {
     $.ajax({
         type: "POST",
-        url: 'http://3.35.140.97:5000/near/place/intro',
+        url: 'https://www.kimkj.shop/near/place/intro',
         data: {
             content_id_give: getId(),
         },
@@ -78,7 +78,7 @@ function weather() {
 
     $.ajax({
         type: "POST",
-        url: 'http://3.35.140.97:5000/near/place/weather',
+        url: 'https://www.kimkj.shop/near/place/weather',
         data: {
             place_lat: place_lat,
             place_lng: place_lng
@@ -116,7 +116,7 @@ function toggle_bookmark(content_id) {
         if ($('#bookmark').hasClass("fas")) {
             $.ajax({
                 type: "POST",
-                url: "http://3.35.140.97:5000/near/place/bookmark",
+                url: "https://www.kimkj.shop/near/place/bookmark",
                 data: {
                     content_id_give: content_id,
                     action_give: "uncheck",
@@ -133,7 +133,7 @@ function toggle_bookmark(content_id) {
         } else {
             $.ajax({
                 type: "POST",
-                url: "http://3.35.140.97:5000/near/place/bookmark",
+                url: "https://www.kimkj.shop/near/place/bookmark",
                 data: {
                     content_id_give: content_id,
                     action_give: "check",
@@ -155,7 +155,7 @@ function toggle_bookmark(content_id) {
 function getBookmark() {
     $.ajax({
         type: "GET",
-        url: `http://3.35.140.97:5000/near/place/bookmark/${getId()}`,
+        url: `https://www.kimkj.shop/near/place/bookmark/${getId()}`,
         data: {},
         success: function (response) {
             if (response['bookmark_status'] == true) {

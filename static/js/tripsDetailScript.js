@@ -5,7 +5,7 @@ function getId() {
 function getItem() {
     $.ajax({
         type: "POST",
-        url: `http://3.35.140.97:5000/trips/place/render`,
+        url: `https://www.kimkj.shop/trips/place/render`,
         data: {trip_id_give: getId()},
         success: function (response) {
             $('#profile_img').attr('src', `https://dk9q1cr2zzfmc.cloudfront.net/profile/${response['trip']['profile_img']}`);
@@ -23,7 +23,7 @@ function getItem() {
 function updateTrip(trip_id) {
     $.ajax({
         type: "POST",
-        url: 'http://3.35.140.97:5000/trips/session',
+        url: 'https://www.kimkj.shop/trips/session',
         data: {trip_id_give: trip_id},
         success: function (response) {
             sessionStorage.setItem('title', response['title']);
@@ -40,7 +40,7 @@ function updateTrip(trip_id) {
 function delTrip(trip_id) {
     $.ajax({
         type: "DELETE",
-        url: `http://3.35.140.97:5000/trips/place/${trip_id}`,
+        url: `https://www.kimkj.shop/trips/place/${trip_id}`,
         data: {},
         success: function (response) {
             alert(response['msg'])
@@ -54,7 +54,7 @@ function delTrip(trip_id) {
 function kakaoShare() {
     $.ajax({
         type: "POST",
-        url: `http://3.35.140.97:5000/trips/place/render`,
+        url: `https://www.kimkj.shop/trips/place/render`,
         data: {trip_id_give: getId()},
         success: function (response) {
             let share_title = response['trip']['title'];
@@ -106,7 +106,7 @@ function toggle_like(trip_id) {
 
             $.ajax({
                 type: "POST",
-                url: "http://3.35.140.97:5000/trips/place/like",
+                url: "https://www.kimkj.shop/trips/place/like",
                 data: {
                     trip_id_give: trip_id,
                     action_give: "uncheck"
@@ -121,7 +121,7 @@ function toggle_like(trip_id) {
         } else {
             $.ajax({
                 type: "POST",
-                url: "http://3.35.140.97:5000/trips/place/like",
+                url: "https://www.kimkj.shop/trips/place/like",
                 data: {
                     trip_id_give: trip_id,
                     action_give: "check"
@@ -140,7 +140,7 @@ function toggle_like(trip_id) {
 function get_like() {
     $.ajax({
         type: "GET",
-        url: `http://3.35.140.97:5000/trips/place/like/${getId()}`,
+        url: `https://www.kimkj.shop/trips/place/like/${getId()}`,
         data: {},
         success: function (response) {
             if (response['like_status'] == true) {
@@ -162,7 +162,7 @@ function comment() {
         if (comment) {
             $.ajax({
                 type: "POST",
-                url: `http://3.35.140.97:5000/trips/place/comment/${getId()}`,
+                url: `https://www.kimkj.shop/trips/place/comment/${getId()}`,
                 data: {comment_give: comment, date_give: date},
                 success: function (response) {
                     if (response['result'] == 'success') {
@@ -181,7 +181,7 @@ function showComments() {
     $('#comment_list').empty();
     $.ajax({
         type: "GET",
-        url: `http://3.35.140.97:5000/trips/place/comment/${getId()}`,
+        url: `https://www.kimkj.shop/trips/place/comment/${getId()}`,
         data: {},
         success: function (response) {
             let all_comments = response['all_comments'];
@@ -220,7 +220,7 @@ function showComments() {
 function deleteComment(comment_id) {
     $.ajax({
         type: "DELETE",
-        url: `http://3.35.140.97:5000/trips/place/comment/${getId()}`,
+        url: `https://www.kimkj.shop/trips/place/comment/${getId()}`,
         data: {comment_id: comment_id},
         success: function (response) {
             if (response['result'] == 'success') {
@@ -263,7 +263,7 @@ function autoHeight() {
 function ownCheck() {
     $.ajax({
         type: "POST",
-        url: 'http://3.35.140.97:5000/own',
+        url: 'https://www.kimkj.shop/own',
         data: {trip_id: getId()},
         success: function (response) {
             if (response['owner']['username'] == response['now_user']) {
