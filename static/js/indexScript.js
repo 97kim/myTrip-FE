@@ -181,8 +181,7 @@ function geoInfo() {
 }
 
 function moveNearDetail(content_id) {
-    window.location.href = "../templates/nearDetail.html";
-    sessionStorage.setItem("content_id", content_id);
+    window.location.href = `../templates/nearDetail.html?id=${content_id}`;
 }
 
 function onGeoError() { //위치 정보 공유 거부 시
@@ -238,8 +237,7 @@ function showTrips() {
 }
 
 function moveTripDetail(trip_id) {
-    window.location.href = "../templates/tripsDetail.html";
-    sessionStorage.setItem("trip_id", trip_id);
+    window.location.href = `../templates/tripsDetail.html?id=${trip_id}`;
 }
 
 function showPopularTrips() {
@@ -305,8 +303,7 @@ function showPopularTrips() {
 }
 
 function movePopularDetail(content_id) {
-    window.location.href = "../templates/popularDetail.html";
-    sessionStorage.setItem("content_id", content_id);
+    window.location.href = `../templates/popularDetail.html?id=${content_id}`;
 }
 
 function covid() {

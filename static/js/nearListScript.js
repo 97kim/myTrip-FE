@@ -80,6 +80,5 @@ function geoInfoList(quantity) {
 }
 
 function moveNearDetail(content_id) {
-    window.location.href = "../templates/nearDetail.html";
-    sessionStorage.setItem("content_id", content_id);
+    window.location.href = `../templates/nearDetail.html?id=${content_id}`;
 }

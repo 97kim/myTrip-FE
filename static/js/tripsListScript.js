@@ -46,6 +46,13 @@ function showListSort(type) {
 }
 
 function moveTripDetail(trip_id) {
-    window.location.href = "../templates/tripsDetail.html";
-    sessionStorage.setItem("trip_id", trip_id);
+    window.location.href = `../templates/tripsDetail.html?id=${trip_id}`;
+}
+
+function writeTrip() {
+    if (localStorage.getItem('token')) {
+        window.location.href = "../templates/write.html";
+    } else {
+        window.location.href = "../templates/login.html";
+    }
 }

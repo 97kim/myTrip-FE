@@ -1,5 +1,6 @@
 function getId() {
-    return sessionStorage.getItem("content_id");
+    const URLSearch = new URLSearchParams(location.search);
+    return URLSearch.get('id');
 }
 
 function getDetailIntro() {

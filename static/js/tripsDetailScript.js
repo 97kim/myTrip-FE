@@ -1,5 +1,6 @@
 function getId() {
-    return sessionStorage.getItem("trip_id");
+    const URLSearch = new URLSearchParams(location.search);
+    return URLSearch.get('id');
 }
 
 function getItem() {
@@ -70,8 +71,8 @@ function kakaoShare() {
                     description: share_place,
                     imageUrl: share_img,
                     link: {
-                        mobileWebUrl: 'https://api.kimkj.shop' + location.pathname,
-                        webUrl: 'https://api.kimkj.shop' + location.pathname
+                        mobileWebUrl: location.href,
+                        webUrl: location.href
                     },
                 },
                 // 나중에 변수 추가할 것임!!
@@ -84,8 +85,8 @@ function kakaoShare() {
                     {
                         title: '구경 가기',
                         link: {
-                            mobileWebUrl: 'https://api.kimkj.shop' + location.pathname,
-                            webUrl: 'https://api.kimkj.shop' + location.pathname
+                            mobileWebUrl: location.href,
+                            webUrl: location.href
                         }
                     }
                 ],
