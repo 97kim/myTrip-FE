@@ -24,6 +24,9 @@ function sign_in() {
             username_give: username,
             password_give: password
         },
+        statusCode: {
+            401: () => alert('아이디/비밀번호를 확인해주세요.')
+        },
         success: function (response) {
             if (response['result'] == 'success') {
                 localStorage.setItem('token', response['token']);
@@ -81,8 +84,10 @@ function sign_up() {
             password_give: password
         },
         success: function (response) {
-            alert("회원가입을 축하드립니다!")
-            window.location.href = "../templates/login.html";
+            if (response['result'] == 'success') {
+                alert("회원가입을 축하드립니다!");
+                window.location.href = "../templates/login.html";
+            }
         }
     });
 }
