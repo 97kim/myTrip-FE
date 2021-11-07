@@ -50,6 +50,7 @@ function moveTripDetail(trip_id) {
 }
 
 function writeTrip() {
+    alert('로그인이 필요한 서비스입니다.');
     if (localStorage.getItem('token')) {
         window.location.href = "../templates/write.html";
     } else {

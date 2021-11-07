@@ -125,8 +125,7 @@ function showPopularBookmarks() {
 }
 
 function movePopularDetail(content_id) {
-    window.location.href = "../templates/popularDetail.html";
-    sessionStorage.setItem("content_id", content_id);
+    window.location.href = `../templates/popularDetail.html?id=${content_id}`;
 }
 
 function showNearBookmarks() {
@@ -168,6 +167,5 @@ function showNearBookmarks() {
 }
 
 function moveNearDetail(content_id) {
-    window.location.href = "../templates/nearDetail.html";
-    sessionStorage.setItem("content_id", content_id);
+    window.location.href = `../templates/nearDetail.html?id=${content_id}`;
 }
